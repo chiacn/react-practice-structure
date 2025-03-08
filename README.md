@@ -139,3 +139,6 @@ cacheDir: './.vite' // 설정 추가
 
 ### cannnot find module 에러가 뜬다면
 Ctrl + Shift + P -> Select TypeScript Version -> Use Workspace Version 선택 (Use VS Code's Version 아님)
+> ### 참고
+> vscode에서 여러 개의 프로젝트를 사용하고 있는 경우, 즉 현재 워크스페이스가 멀티 루트인 경우
+> .vscode/settings.json의 "typescript.tsdk": ".yarn/sdks/typescript/lib", "typescript.enablePromptUseWorkspaceTsdk": true 설정이 비활성하되어 Select Typescript Version에 현재 워크스페이스의 typescript 버전이 안 뜰 수 있음.
