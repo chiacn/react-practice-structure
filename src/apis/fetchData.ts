@@ -1,11 +1,11 @@
 import type { Category } from "../types/category";
-import type { Contest } from "../types/contest";
+import { Contest } from "../types/contest";
 import request from "./axiosInstance";
 
-export async function getCategories() {
+export const getCategories = async () => {
   return request<Category[]>("get", "/categories");
-}
+};
 
-export async function getContests() {
+export async function getTestList() {
   return request<Contest[]>("get", "/contest");
 }
