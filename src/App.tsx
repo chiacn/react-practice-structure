@@ -4,6 +4,7 @@ import DefaultLayout from "./pages/DefaultLayout";
 import GlobalStyle from "./styles/globalStyle";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./styles/theme";
+import "./styles/font.css";
 
 function App() {
   return (
