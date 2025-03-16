@@ -34,7 +34,7 @@ const theme: Theme = {
       letter-spacing: -0.5px;
     `,
   },
-  fontFamily: `"Noto Sans CJK KR", sans-serif`,
+  fontFamily: `"Pretendard-Regular", sans-serif`,
 };
 
 export default theme;
