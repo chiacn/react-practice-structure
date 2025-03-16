@@ -53,6 +53,7 @@ const TitleContainer = styled.h2`
   ${({ theme }) => theme.typography.subTitle1Bold};
   color: ${({ theme }) => theme.colors.gray900};
   margin-bottom: 8px;
+  text-align: left;
 `;
 
 const DescriptionContainer = styled.p`
