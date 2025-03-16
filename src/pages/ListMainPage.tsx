@@ -1,47 +1,23 @@
-import styled from "@emotion/styled";
 import List from "../components/List";
 import LeftNav from "../components/LeftNav";
 import useCategory from "../hooks/useCategory";
 import useList from "../hooks/useList";
-
-const MainPageContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  margin: 0 auto;
-  max-width: 1280px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-  min-height: 600px;
-`;
-
-const LeftNavWrapper = styled.div`
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const ContentWrapper = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
+import * as S from "./ListMainPage.style";
 
 function ListMainPage() {
   const { categories, selectedCategory, selectCategory } = useCategory();
   const { listForCategory, goToDetail } = useList(selectedCategory);
 
   return (
-    <MainPageContainer>
-      <LeftNavWrapper>
+    <S.MainPageContainer>
+      <S.LeftNavWrapper>
         <LeftNav
           categories={categories}
           selectedCategory={selectedCategory}
           onSelect={selectCategory}
         />
-      </LeftNavWrapper>
-      <ContentWrapper>
+      </S.LeftNavWrapper>
+      <S.ContentWrapper>
         <List>
           {listForCategory.map((listItem) => (
             <div key={listItem.id} onClick={() => goToDetail(listItem.id)}>
@@ -60,8 +36,8 @@ function ListMainPage() {
             </div>
           ))}
         </List>
-      </ContentWrapper>
-    </MainPageContainer>
+      </S.ContentWrapper>
+    </S.MainPageContainer>
   );
 }
 
