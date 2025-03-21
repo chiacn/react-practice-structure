@@ -10,27 +10,36 @@ interface BadgeProps {
   badges?: BadgeItem;
 }
 
+const BADGE_COLOR = {
+  WARN: "#F21724",
+  AVAILABLE: "#2656F6",
+  DEFAULT: "#6F7785",
+};
+
+const BADGE_TITLE = {
+  WARN: "Badge A",
+  AVAILABLE: "Badge B",
+  DEFAULT: "Badge C",
+};
+
+const getBadgeLevel = (
+  leftDate: number | undefined
+): keyof typeof BADGE_COLOR => {
+  if (leftDate === undefined) return "DEFAULT";
+  if (leftDate >= 10) return "DEFAULT";
+  if (leftDate >= 5) return "AVAILABLE";
+  return "WARN";
+};
+
 const Badge = ({ badges }: BadgeProps) => {
-  const setBackgroundColor = () => {
-    if (badges?.leftDate) {
-      if (badges?.leftDate >= 10) return "#6F7785";
-      if (badges?.leftDate >= 5) return "#2656F6";
-      if (badges?.leftDate < 5) return "#F21724";
-    }
-    return "#6F7785";
-  };
+  const badgeLevel = getBadgeLevel(badges?.leftDate);
+  const backgroundColor = BADGE_COLOR[badgeLevel];
+  const badgeTitle = BADGE_TITLE[badgeLevel];
 
-  const convertNumberToBadgeTitle = (num: number) => {
-    if (num >= 10) return "Badge A";
-    if (num >= 5) return "Badge B";
-    return "Badge C";
-  };
-
-  const backgroundColor = setBackgroundColor();
   return (
     <S.BadgeContainer>
       <S.BadgeItemStyle backgroundColor={backgroundColor}>
-        {convertNumberToBadgeTitle(badges?.leftDate ?? 0)}
+        {badgeTitle}
       </S.BadgeItemStyle>
       <S.BadgeItemStyle>{badges?.category}</S.BadgeItemStyle>
       <S.BadgeItemStyle>{badges?.industry}</S.BadgeItemStyle>
