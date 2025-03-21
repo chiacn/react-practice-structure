@@ -19,31 +19,27 @@ export default function useContestList(categoryId: number) {
     []
   );
 
-  const setBadge = (contests: Contest[]): Contest[] => {
-    return contests.map((contest, index) => ({
-      ...contest,
+  // const setBadge = (contests: Contest[]): Contest[] => {
+  //   return contests.map((contest, index) => ({
+  //     ...contest,
 
-      // 추후 category에 따라 badge가 달라질 경우 로직 추가
-      badge: {
-        badgeIdx: index,
-        leftDate: calculateLeftDate(contest.endDate),
-        category: contest.category.name,
-        industry: contest.clientInfo.industry.name,
-      },
-    }));
-  };
+  //     // 추후 category에 따라 badge가 달라질 경우 로직 추가
+  //     badge: {
+  //       badgeIdx: index,
+  //       leftDate: calculateLeftDate(contest.endDate),
+  //       category: contest.category.name,
+  //       industry: contest.clientInfo.industry.name,
+  //     },
+  //   }));
+  // };
 
-  // TODO: setBadge - useCallback, 의존성 추가
   const getTestListData = useCallback(async () => {
     setIsLoading(true);
     try {
       const contests = await getTestList();
-      const contestsWithBadgeSet = setBadge(contests);
-      setList(contestsWithBadgeSet);
-      setListForCategory(
-        filterListWithCategoryId(contestsWithBadgeSet, categoryId)
-      ); // category Id에 따라 필터링된 list 반환
-      console.log("contests --- ", contestsWithBadgeSet);
+      setList(contests);
+      setListForCategory(filterListWithCategoryId(contests, categoryId)); // category Id에 따라 필터링된 list 반환
+      console.log("contests --- ", contests);
     } catch (error) {
       console.error("Error fetching contests:", error);
     } finally {
@@ -62,6 +58,27 @@ export default function useContestList(categoryId: number) {
     return Math.floor((endDateTime - currentDateTime) / (1000 * 60 * 60 * 24));
   }
 
+  const BADGE_COLOR = {
+    WARN: "#F21724",
+    AVAILABLE: "#2656F6",
+    DEFAULT: "#6F7785",
+  };
+
+  const BADGE_TITLE = {
+    WARN: "Badge A",
+    AVAILABLE: "Badge B",
+    DEFAULT: "Badge C",
+  };
+
+  const getBadgeLevel = (
+    leftDate: number | undefined
+  ): keyof typeof BADGE_COLOR => {
+    if (leftDate === undefined) return "DEFAULT";
+    if (leftDate >= 10) return "DEFAULT";
+    if (leftDate >= 5) return "AVAILABLE";
+    return "WARN";
+  };
+
   useEffect(() => {
     getTestListData();
   }, [getTestListData]);
@@ -70,5 +87,13 @@ export default function useContestList(categoryId: number) {
     setListForCategory(filterListWithCategoryId(list, categoryId));
   }, [list, categoryId, filterListWithCategoryId]);
 
-  return { listForCategory, goToDetail, isLoading };
+  return {
+    listForCategory,
+    goToDetail,
+    isLoading,
+    calculateLeftDate,
+    BADGE_COLOR,
+    BADGE_TITLE,
+    getBadgeLevel,
+  };
 }

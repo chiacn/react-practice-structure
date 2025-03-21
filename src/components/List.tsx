@@ -6,44 +6,24 @@ interface ListProps {
   onSelect?: () => void;
 }
 
-interface BadgeProps {
-  badges?: BadgeItem;
+// interface BadgeProps {
+//   badges?: BadgeItem;
+// }
+
+const Badge = ({ children }: { children: React.ReactNode }) => {
+  return <S.BadgeContainer>{children}</S.BadgeContainer>;
+};
+
+interface BadgeItemProps {
+  title: string | number;
+  backgroundColor?: string;
 }
 
-const BADGE_COLOR = {
-  WARN: "#F21724",
-  AVAILABLE: "#2656F6",
-  DEFAULT: "#6F7785",
-};
-
-const BADGE_TITLE = {
-  WARN: "Badge A",
-  AVAILABLE: "Badge B",
-  DEFAULT: "Badge C",
-};
-
-const getBadgeLevel = (
-  leftDate: number | undefined
-): keyof typeof BADGE_COLOR => {
-  if (leftDate === undefined) return "DEFAULT";
-  if (leftDate >= 10) return "DEFAULT";
-  if (leftDate >= 5) return "AVAILABLE";
-  return "WARN";
-};
-
-const Badge = ({ badges }: BadgeProps) => {
-  const badgeLevel = getBadgeLevel(badges?.leftDate);
-  const backgroundColor = BADGE_COLOR[badgeLevel];
-  const badgeTitle = BADGE_TITLE[badgeLevel];
-
+const BadgeItem = ({ title, backgroundColor }: BadgeItemProps) => {
   return (
-    <S.BadgeContainer>
-      <S.BadgeItemStyle backgroundColor={backgroundColor}>
-        {badgeTitle}
-      </S.BadgeItemStyle>
-      <S.BadgeItemStyle>{badges?.category}</S.BadgeItemStyle>
-      <S.BadgeItemStyle>{badges?.industry}</S.BadgeItemStyle>
-    </S.BadgeContainer>
+    <S.BadgeItemStyle backgroundColor={backgroundColor}>
+      {title}
+    </S.BadgeItemStyle>
   );
 };
 
@@ -84,6 +64,7 @@ function List({ children, onSelect }: ListProps) {
 }
 
 List.Badge = Badge;
+List.BadgeItem = BadgeItem;
 List.Title = Title;
 List.Description = Description;
 
