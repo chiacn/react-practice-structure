@@ -16,6 +16,8 @@ export const NavContainer = styled.nav`
     min-width: auto;
     border-right: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray400};
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -46,12 +48,25 @@ export const NavItem = styled.button<NavItemProps>`
     color: ${({ theme }) => theme.colors.info};
   }
 
-  /* variant가 seeAll인 경우 추가 스타일 적용 */
   ${({ variant, theme }) =>
     variant === "seeAll" &&
     `
       border-bottom: 1px solid ${theme.colors.gray200};
+      border-radius: 0px;
       padding-bottom: 12px;
       margin-bottom: 12px;
     `}
+
+  @media (max-width: 768px) {
+    width: 60px;
+    font-size: 12px;
+    border-radius: 2px;
+
+    ${({ variant }) =>
+      variant === "seeAll" &&
+      `
+        border-bottom: none; 
+        margin-bottom: 0;
+      `}
+  }
 `;
