@@ -43,6 +43,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:2.7.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:18.3.1"],\
+          ["react-hook-form", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.54.2"],\
           ["react-router-dom", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.3.0"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:5.4.14"]\
@@ -4301,6 +4302,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-hook-form", [\
+      ["npm:7.54.2", {\
+        "packageLocation": "./.yarn/cache/react-hook-form-npm-7.54.2-9e7394f4c4-6eebead290.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "npm:7.54.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.54.2", {\
+        "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-39ff54f0f5/0/cache/react-hook-form-npm-7.54.2-9e7394f4c4-6eebead290.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.54.2"],\
+          ["@types/react", "npm:18.3.18"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-is", [\
       ["npm:16.13.1", {\
         "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-33977da7a5.zip/node_modules/react-is/",\
@@ -4388,6 +4411,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:2.7.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:18.3.1"],\
+          ["react-hook-form", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.54.2"],\
           ["react-router-dom", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:7.3.0"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:da466cd2e86094a80cf1479b7973515926c4b1745c44394503ed310e0e25b8d7c4df903f0ee5552be029b8217fac85bfefc76160990e35d9a30e1853861746bb#npm:5.4.14"]\
