@@ -14,6 +14,8 @@ const DefaultLayout = ({
 
   return (
     <>
+      {/* 임시 GNB 공간 차지 */}
+      <div style={{ height: "62px" }}></div>
       <main
         style={{
           minHeight: `calc(100vh${!hideNavbar ? ` - ${GNB_HEIGHT}` : 0}${

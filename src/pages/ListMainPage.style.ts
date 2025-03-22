@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const MainPageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   max-width: 1280px;
 
