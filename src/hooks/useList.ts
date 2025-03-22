@@ -48,7 +48,7 @@ export default function useContestList(categoryId: number) {
   }, [filterListWithCategoryId, categoryId]);
 
   const goToDetail = (contestId: number) => {
-    navigate(`/contest/${contestId}`);
+    navigate(`/contest/${contestId}/apply`);
   };
 
   // Util
