@@ -8,7 +8,7 @@ import { postApply } from "../apis/fetchData";
 const ApplyFormContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 90vh;
   min-width: 320px;
 `;
